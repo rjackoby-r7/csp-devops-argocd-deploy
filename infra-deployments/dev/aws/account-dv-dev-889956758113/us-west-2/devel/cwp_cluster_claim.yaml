@@ -5,7 +5,7 @@ metadata:
 spec:
   id: devel
   providerConfigName: dv-dev
-  namespace: 'devel-ns'
+  #namespace: 'devel-ns'
   parameters:
     region: us-west-2
     eks:

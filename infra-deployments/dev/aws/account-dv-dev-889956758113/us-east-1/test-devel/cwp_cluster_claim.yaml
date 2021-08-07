@@ -1,13 +1,13 @@
 apiVersion: aws.platformref.crossplane.io/v1alpha1
 kind: Cwp2NGCluster
 metadata:
-  name: devel-claim
+  name: test-devel-claim
 spec:
-  id: devel
+  id: test-devel
   providerConfigName: dv-dev
   namespace: infra-deployments-claims-ns
   parameters:
-    region: us-west-2
+    region: us-east-1
     eks:
       version: '1.21'
       ng1:

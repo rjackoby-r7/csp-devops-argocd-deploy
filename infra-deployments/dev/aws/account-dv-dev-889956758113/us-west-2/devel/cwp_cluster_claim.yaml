@@ -1,5 +1,5 @@
 apiVersion: aws.platformref.crossplane.io/v1alpha1
-kind: CwpCluster
+kind: CwpCompositeCluster2NG
 metadata:
   name: devel-claim
 spec:

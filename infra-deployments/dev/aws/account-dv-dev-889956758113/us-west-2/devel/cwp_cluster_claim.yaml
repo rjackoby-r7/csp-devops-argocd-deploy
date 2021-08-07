@@ -20,7 +20,7 @@ spec:
           minSize: 1
           maxSize: 20
           desiredSize: 2
-        instanceType: m5ad.xlarge
+        instanceType: m5.large
         diskSize: 20
 
       ng2:
@@ -34,7 +34,7 @@ spec:
           minSize: 1
           maxSize: 10
           desiredSize: 3
-        instanceType: m5d.xlarge
+        instanceType: m5.xlarge
         diskSize: 50
 
     services:

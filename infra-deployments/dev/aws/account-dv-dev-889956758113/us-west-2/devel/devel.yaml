@@ -1,0 +1,43 @@
+apiVersion: aws.platformref.crossplane.io/v1alpha1
+kind: CwpCluster
+metadata:
+  name: devel-claim
+  namespace: infra-deployments-claims-ns
+spec:
+  id: devel
+  namespace: infra-deployments-claims-ns
+  parameters:
+    eks:
+      ng1:
+        diskSize: 20
+        instanceType: m5.large
+        #labels: {}
+        scalingConfig:
+          desiredSize: 2
+          maxSize: 20
+          minSize: 1
+      ng2:
+        diskSize: 50
+        instanceType: m5.xlarge
+        #labels: {}
+        scalingConfig:
+          desiredSize: 3
+          maxSize: 10
+          minSize: 1
+      version: '1.21'
+    region: us-west-2
+    services:
+      aws_node_termination_handler:
+        chart_name: aws-node-termination-handler
+        source_repo: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/new-structure/cluster-level-charts/
+        version: 0.15.2
+      cluster_autoscaler:
+        chart_name: cluster-autoscaler
+        source_repo: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/new-structure/cluster-level-charts/
+        version: 9.10.3
+      destination_namespace: ops
+  providerConfigName: dv-dev
+  resourceRef:
+    apiVersion: aws.platformref.crossplane.io/v1alpha1
+    kind: CwpCompositeCluster
+    name: devel-claim-9qfxq

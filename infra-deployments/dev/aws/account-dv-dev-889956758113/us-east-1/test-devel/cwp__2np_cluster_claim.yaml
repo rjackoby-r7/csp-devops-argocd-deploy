@@ -11,11 +11,11 @@ spec:
     eks:
       version: '1.21'
       ng1:
-        labels:
-          alcide/stateless: true
-          alcide/ops: true
-          node.kubernetes.io/role: stateless
-          node.kubernetes.io/lifecycle: spot
+        #labels:
+        #  alcide/stateless: true
+        #  alcide/ops: true
+        #  node.kubernetes.io/role: stateless
+        #  node.kubernetes.io/lifecycle: spot
         scalingConfig:
           minSize: 1
           maxSize: 20
@@ -24,12 +24,12 @@ spec:
         diskSize: 20
 
       ng2:
-        labels:
-          alcide/kafka: true
-          alcide/cassandra: true
-          alcide/mongodb: true
-          alcide/etcd: true
-          node.kubernetes.io/lifecycle: spot
+        #labels:
+        #  alcide/kafka: true
+        #  alcide/cassandra: true
+        #  alcide/mongodb: true
+        #  alcide/etcd: true
+        #  node.kubernetes.io/lifecycle: spot
         scalingConfig:
           minSize: 1
           maxSize: 10

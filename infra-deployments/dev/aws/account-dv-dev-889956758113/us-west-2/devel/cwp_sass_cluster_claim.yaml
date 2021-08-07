@@ -11,8 +11,8 @@ spec:
     eks:
       version: '1.21'
       ng1:
-        labels:
-          some-key: some-value
+        #labels:
+          #some-key: some-value
           #alcide/stateless: true
           #alcide/ops: true
           #node.kubernetes.io/role: stateless
@@ -25,8 +25,8 @@ spec:
         diskSize: 20
 
       ng2:
-        labels:
-          some-key: some-value
+        #labels:
+          #some-key: some-value
           #alcide/kafka: true
           #alcide/cassandra: true
           #alcide/mongodb: true

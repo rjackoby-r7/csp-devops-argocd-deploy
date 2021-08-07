@@ -1,7 +1,7 @@
 apiVersion: aws.platformref.crossplane.io/v1alpha1
 kind: CwpSassCluster
 metadata:
-  name: cwp-sass-claim
+  name: cwp-sass-cl
 spec:
   id: cwp-sass
   providerConfigName: dv-dev

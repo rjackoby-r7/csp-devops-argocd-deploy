@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alcide-installer
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: cwp-sass-dev-proj
+  source:
+    repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/alcide
+    chart: alcide-installer
+    targetRevision: 0.14.0
+  destination:
+    namespace: alcide
+    server: https://3969BC3980538D1D0367E610E43745D6.sk1.eu-west-1.eks.amazonaws.com

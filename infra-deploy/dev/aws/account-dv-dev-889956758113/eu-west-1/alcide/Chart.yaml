@@ -1,7 +1,0 @@
-apiVersion: v2
-name: Alcide app of apps.
-description: Alcide installer.
-annotations:
-  category: App
-version: 1.0.0
-appVersion: 1.0.0

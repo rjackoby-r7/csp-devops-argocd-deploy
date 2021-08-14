@@ -10,7 +10,12 @@ spec:
   source:
     repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/alcide
     chart: alcide-installer
-    targetRevision: 0.14.0
+    targetRevision: 0.15.0
+    helm:
+      values: |
+        roleArn: arn:aws:iam::889956758113:role/alcide-installer-ssm-access
+        ssm_group_prefix: Devel
+
   destination:
     namespace: alcide
     server: https://3EB3DC8AF129F3A4543FE2EF568D1494.yl4.eu-west-1.eks.amazonaws.com

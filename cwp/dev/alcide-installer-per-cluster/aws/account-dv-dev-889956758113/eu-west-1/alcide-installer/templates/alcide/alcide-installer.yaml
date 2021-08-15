@@ -9,7 +9,7 @@ metadata:
     cloud-provider: aws
     env: divvy-dev
     account: '889956758113'
-    #cluster: Devel
+    cluster: Devel
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

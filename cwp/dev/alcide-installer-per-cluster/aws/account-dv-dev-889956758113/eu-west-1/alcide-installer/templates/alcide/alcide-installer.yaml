@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: alcide-installer-Devel
+  name: alcide-installer-devel
   namespace: argocd
   labels:
     domain: deployment

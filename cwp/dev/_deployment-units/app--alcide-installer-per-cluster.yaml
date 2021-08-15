@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 07-deployments-dev
+  name: alcide-installer-dep-gr
   namespace: argocd
   labels:
-    level: tier-root
-    tier: deployments
+    domain: deployment
+    role: deployment-group # Options: deployment-group/ component-group / component
 spec:
-  project: default
+  project: cwp-sass-dev-proj
   source:
     path: cwp/dev/alcide-installer-per-cluster
     repoURL: https://github.com/rjackoby-r7/csp-devops-argocd-deploy.git

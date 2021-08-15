@@ -8,7 +8,7 @@ metadata:
     role: component # Options: deployment-group/ component-group / component
     cloud-provider: aws
     env: divvy-dev
-    #account: 889956758113
+    account: 889956758113
     #cluster: Devel
   finalizers:
     - resources-finalizer.argocd.argoproj.io

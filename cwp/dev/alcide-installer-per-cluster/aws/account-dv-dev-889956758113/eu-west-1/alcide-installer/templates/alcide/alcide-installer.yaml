@@ -6,7 +6,7 @@ metadata:
   labels:
     domain: deployment
     role: component # Options: deployment-group/ component-group / component
-    #cloud-provider: aws
+    cloud-provider: aws
     env: divvy-dev
     #account: 889956758113
     #cluster: Devel

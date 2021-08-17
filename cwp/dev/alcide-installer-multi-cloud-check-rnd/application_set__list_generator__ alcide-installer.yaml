@@ -8,7 +8,7 @@ spec:
   - list:
       elements:
       - cluster: aws-mayhem
-        url:  https://55341330D7642D10A93C906543B43C7B.gr7.eu-west-1.eks.amazonaws.com
+        url: https://55341330D7642D10A93C906543B43C7B.eks.eu-west-1.eks.amazonaws.com
       #- cluster: gcp-mayhem
       #  url:
       #- cluster: azure-mayhem

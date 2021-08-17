@@ -15,7 +15,7 @@ spec:
       #  url:
   template:
     metadata:
-      name: 'alcide-installer-aws-mayhem'
+      name: 'alcide-installer-{{cluster}}'
     spec:
       project: cwp-sass-dev-proj
       source:
@@ -28,7 +28,7 @@ spec:
             ssm_group_prefix: Devel
 
       destination:
-        server: https://oidc.eks.eu-west-1.amazonaws.com/id/55341330D7642D10A93C906543B43C7B
+        server: '{{url}}'
         namespace: 'alcide'
 
       syncPolicy:

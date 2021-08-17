@@ -9,9 +9,11 @@ metadata:
 spec:
   project: cwp-sass-dev-proj
   source:
-    path: cwp/dev/alcide-installer-multi-cloud-check-rnd/application_set__list_generator__ alcide-installer.yaml
+    path: cwp/dev/alcide-installer-multi-cloud-check-rnd/
     repoURL: https://github.com/rjackoby-r7/csp-devops-argocd-deploy.git
     targetRevision: HEAD
+    directory:
+      recurse: true
 
   destination:
     namespace: '*'

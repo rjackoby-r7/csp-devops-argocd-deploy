@@ -18,3 +18,8 @@ spec:
   destination:
     namespace: '*'
     server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true

@@ -8,7 +8,7 @@ spec:
   - list:
       elements:
       - cluster: aws-mayhem
-        url:  https://oidc.eks.eu-west-1.amazonaws.com/id/55341330D7642D10A93C906543B43C7B
+        url:  https://55341330D7642D10A93C906543B43C7B.eks.eu-west-1.eks.amazonaws.com
       #- cluster: gcp-mayhem
       #  url:
       #- cluster: azure-mayhem

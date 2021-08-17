@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alcide-installer-multi-cloud-check-rnd-dep-gr
+  namespace: argocd
+  labels:
+    domain: deployment
+    role: deployment-group # Options: deployment-group/ component-group / component
+spec:
+  project: cwp-sass-dev-proj
+  source:
+    path: cwp/dev/alcide-installer-multi-cloud-check-rnd
+    repoURL: https://github.com/rjackoby-r7/csp-devops-argocd-deploy.git
+    targetRevision: HEAD
+
+  destination:
+    namespace: '*'
+    server: https://kubernetes.default.svc

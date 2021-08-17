@@ -15,7 +15,7 @@ spec:
       #  url:
   template:
     metadata:
-      name: 'alcide-installer-{{cluster}}'
+      name: 'alcide-installer--{{cluster}}'
     spec:
       project: cwp-sass-dev-proj
       source:

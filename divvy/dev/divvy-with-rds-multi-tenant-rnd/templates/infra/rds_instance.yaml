@@ -64,6 +64,11 @@ spec:
       - key: name
         value: {{ .Values.rds.name }}-rds
 
+      - key: crossplane-kind
+        value: rdsinstance.database.aws.crossplane.io
+      - key: crossplane-providerconfig
+        value: aws-provider-config
+
   writeConnectionSecretToRef:
     name: {{ .Values.crossplaneRdsSecretName }}
     namespace: {{ .Values.divvy_cloud.destination.namespace }}

@@ -64,6 +64,9 @@ spec:
       - key: name
         value: {{ .Values.rds.name }}-rds
 
+      - key: crossplane-name
+        value: {{ .Values.rds.name }}-rds
+
       - key: crossplane-kind
         value: rdsinstance.database.aws.crossplane.io
       - key: crossplane-providerconfig

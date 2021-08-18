@@ -1,0 +1,7 @@
+name: divvy-argo-with-crossplane-no-xrd
+description: Divvy with RDS - no xrds.
+annotations:
+  category: Infrastructure
+apiVersion: v1
+appVersion: 1.0.0
+version: 1.0.0

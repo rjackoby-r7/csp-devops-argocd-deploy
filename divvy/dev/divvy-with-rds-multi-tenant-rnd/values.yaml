@@ -1,0 +1,39 @@
+prefix: tenant1
+crossplaneRdsSecretName: tenant1-rds-secret
+
+namespace: argocd
+project: cwp-sass-dev-proj
+
+divvy_cloud:
+  interface_servers_count: 1
+  schedulers_count: 1
+  workers_count: 1
+
+  source:
+    repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/alcide
+    chart:
+      name: divvycloud
+      version: 18.0.10
+
+  # Not sure if we need it here - because we pass this in the applicationset?
+  destination:
+    namespace: tenant1-ns
+    server: https://55341330D7642D10A93C906543B43C7B.gr7.eu-west-1.eks.amazonaws.com
+
+rds:
+  name: tenant1
+  region: us-east-1
+  subnet1_id: subnet-0e017e3a69f290300
+  subnet2_id: subnet-08e145dafefb89afa
+  subnet3_id: override-me
+  multiAZ: true
+  engineVersion: "5.7.23"
+  publiclyAccessible: false
+  dbInstanceClass: db.t2.large
+  allocatedStorage: 100
+  storageType: gp2
+  backupRetentionPeriod: 7
+  preferredBackupWindow: "7:00-8:00"
+  preferredMaintenanceWindow: "Sat:8:00-Sat:11:00"
+  deletionProtection: false
+

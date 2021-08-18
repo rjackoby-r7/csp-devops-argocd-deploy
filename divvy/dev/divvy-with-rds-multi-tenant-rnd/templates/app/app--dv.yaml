@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.prefix }}-divvy-dev
+  namespace: {{ .Values.namespace }}
+  #finalizers:
+  #  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.project }}
+  source:
+    repoURL: {{ .Values.divvy_cloud.source.repoURL }}
+    chart: {{ .Values.divvy_cloud.source.chart.name }} #divvycloud
+    targetRevision: {{ .Values.divvy_cloud.source.chart.version }} #18.0.1
+    helm:
+
+      parameters:
+        - name: crossplaneRdsSecretName
+          value: {{ .Values.crossplaneRdsSecretName }}
+
+        - name: replicaCounts.interfaceservers
+          value: {{ .Values.divvy_cloud.interface_servers_count }}
+
+        - name: replicaCounts.schedulers
+          value: {{ .Values.divvy_cloud.schedulers_count }}
+
+        - name: replicaCounts.workers
+          value: {{ .Values.divvy_cloud.workers_count }}
+
+      valueFiles:
+        - values.yaml
+
+  destination:
+    namespace: {{ .Values.divvy_cloud.destination.namespace }}
+    server: {{ .Values.divvy_cloud.destination.server }}
+
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+

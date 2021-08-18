@@ -1,0 +1,74 @@
+apiVersion: database.aws.crossplane.io/	v1beta1
+kind: DBSubnetGroup
+metadata:
+  name: {{ .Values.rds.name }}-dbsubnetgroup
+spec:
+  groupName: {{ .Values.rds.name }}-dbsubnetgroup
+  description: EKS vpc to rds
+  region: {{ .Values.rds.region }}
+  subnetIds:
+    - {{ .Values.rds.subnet1_id }}
+    - {{ .Values.rds.subnet2_id }}
+  tags:
+    - key: name
+      value: {{ .Values.rds.name }}-dbsubnetgroup
+
+  #providerRef:
+  #  name: aws-provider
+
+  providerConfigRef:
+    name: aws-provider-config
+  deletionPolicy: Delete
+
+---
+
+apiVersion: rds.aws.crossplane.io/v1alpha1
+kind: DBInstance
+metadata:
+  name: {{ .Values.rds.name }}-rds
+spec:
+  forProvider:
+
+    dbName: 'divvy'
+    engine: mysql
+    engineVersion: {{ .Values.rds.engineVersion }}
+    autoMinorVersionUpgrade: false
+
+    publiclyAccessible: {{ .Values.rds.publiclyAccessible }}
+    region: {{ .Values.rds.region }}
+    dbSubnetGroupNameSelector:
+      matchControllerRef: true
+    multiAZ: {{ .Values.rds.multiAZ }}
+    dbInstanceClass: {{ .Values.rds.dbInstanceClass }}
+
+    allocatedStorage: {{ .Values.rds.allocatedStorage }}
+    storageType: {{ .Values.rds.storageType }}
+
+    masterUsername: 'divvy'
+    autogeneratePassword: false
+    enableIAMDatabaseAuthentication: false
+
+    backupRetentionPeriod: {{ .Values.rds.backupRetentionPeriod }}
+    preferredBackupWindow: {{ .Values.rds.preferredBackupWindow }}
+    preferredMaintenanceWindow:  {{ .Values.rds.preferredMaintenanceWindow }}
+    #skipFinalSnapshot: {{ .Values.rds.skipFinalSnapshot }}
+    deletionProtection: {{ .Values.rds.deletionProtection }}
+
+    storageEncrypted: {{ .Values.rds.storageEncrypted }}
+
+    monitoringInterval: 0
+    enablePerformanceInsights: false
+    cloudwatchLogsExportConfiguration:
+      enableLogTypes: ['slowquery']
+      disableLogTypes: ['error']
+
+    tags:
+      - key: name
+        value: {{ .Values.rds.name }}-rds
+
+  writeConnectionSecretToRef:
+    name: {{ .Values.crossplaneRdsSecretName }}
+    namespace: {{ .Values.divvy_cloud.destination.namespace }}
+
+  providerConfigRef:
+    name: aws-provider-config

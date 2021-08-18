@@ -21,6 +21,8 @@ divvy_cloud:
     server: https://55341330D7642D10A93C906543B43C7B.gr7.eu-west-1.eks.amazonaws.com
 
 rds:
+  aws_provider_prefix: divvy-dev
+
   name: tenant1
   region: "us-east-1"
   subnet1_id: "subnet-0e017e3a69f290300"

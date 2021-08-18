@@ -17,7 +17,7 @@ spec:
   #  name: aws-provider
 
   providerConfigRef:
-    name: aws-provider-config
+    name: {{ .Values.aws_provider_prefix }-aws-provider-config
   deletionPolicy: Delete
 
 ---
@@ -67,11 +67,11 @@ spec:
       - key: crossplane-kind
         value: rdsinstance.database.aws.crossplane.io
       - key: crossplane-providerconfig
-        value: aws-provider-config
+        value: {{ .Values.aws_provider_prefix }-aws-provider-config
 
   writeConnectionSecretToRef:
     name: {{ .Values.crossplaneRdsSecretName }}
     namespace: {{ .Values.divvy_cloud.destination.namespace }}
 
   providerConfigRef:
-    name: aws-provider-config
+    name: {{ .Values.aws_provider_prefix }-aws-provider-config

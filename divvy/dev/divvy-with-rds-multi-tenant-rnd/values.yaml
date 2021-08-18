@@ -5,9 +5,9 @@ namespace: argocd
 project: cwp-sass-dev-proj
 
 divvy_cloud:
-  interface_servers_count: 1
-  schedulers_count: 1
-  workers_count: 1
+  interface_servers_count: "1"
+  schedulers_count: "1"
+  workers_count: "1"
 
   source:
     repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/alcide

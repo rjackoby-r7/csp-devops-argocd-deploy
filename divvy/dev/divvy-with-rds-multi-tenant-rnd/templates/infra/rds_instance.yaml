@@ -36,8 +36,7 @@ spec:
 
     publiclyAccessible: {{ .Values.rds.publiclyAccessible }}
     region: {{ .Values.rds.region }}
-    dbSubnetGroupNameSelector:
-      matchControllerRef: true
+    dbSubnetGroupName: {{ .Values.rds.name }}-dbsubnetgroup
     multiAZ: {{ .Values.rds.multiAZ }}
     dbInstanceClass: {{ .Values.rds.dbInstanceClass }}
 

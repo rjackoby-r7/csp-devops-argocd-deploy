@@ -3,7 +3,6 @@ kind: DBSubnetGroup
 metadata:
   name: {{ .Values.rds.name }}-dbsubnetgroup
 spec:
-  groupName: {{ .Values.rds.name }}-dbsubnetgroup
   description: EKS vpc to rds
   region: {{ .Values.rds.region }}
   subnetIds:
@@ -45,7 +44,6 @@ spec:
     storageType: {{ .Values.rds.storageType }}
 
     masterUsername: 'divvy'
-    autogeneratePassword: false
     enableIAMDatabaseAuthentication: false
 
     backupRetentionPeriod: {{ .Values.rds.backupRetentionPeriod }}

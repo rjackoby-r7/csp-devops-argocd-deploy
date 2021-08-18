@@ -1,4 +1,4 @@
-apiVersion: database.aws.crossplane.io/	v1beta1
+apiVersion: database.aws.crossplane.io/v1beta1
 kind: DBSubnetGroup
 metadata:
   name: {{ .Values.rds.name }}-dbsubnetgroup
@@ -22,7 +22,7 @@ spec:
 
 ---
 
-apiVersion: rds.aws.crossplane.io/v1alpha1
+apiVersion: database.aws.crossplane.io/v1beta1
 kind: DBInstance
 metadata:
   name: {{ .Values.rds.name }}-rds

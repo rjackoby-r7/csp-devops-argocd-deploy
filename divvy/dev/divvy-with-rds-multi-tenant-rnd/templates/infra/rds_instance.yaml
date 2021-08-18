@@ -30,7 +30,7 @@ spec:
   forProvider:
 
     dbName: 'divvy'
-    engine: mysql
+    engine: "mysql"
     engineVersion: {{ .Values.rds.engineVersion }}
     autoMinorVersionUpgrade: false
 

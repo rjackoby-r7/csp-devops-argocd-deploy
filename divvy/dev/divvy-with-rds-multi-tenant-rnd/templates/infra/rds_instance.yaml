@@ -3,14 +3,15 @@ kind: DBSubnetGroup
 metadata:
   name: {{ .Values.rds.name }}-dbsubnetgroup
 spec:
-  description: EKS vpc to rds
-  region: {{ .Values.rds.region }}
-  subnetIds:
-    - {{ .Values.rds.subnet1_id }}
-    - {{ .Values.rds.subnet2_id }}
-  tags:
-    - key: name
-      value: {{ .Values.rds.name }}-dbsubnetgroup
+  forProvider:
+    description: EKS vpc to rds
+    region: {{ .Values.rds.region }}
+    subnetIds:
+      - {{ .Values.rds.subnet1_id }}
+      - {{ .Values.rds.subnet2_id }}
+    tags:
+      - key: name
+        value: {{ .Values.rds.name }}-dbsubnetgroup
 
   #providerRef:
   #  name: aws-provider

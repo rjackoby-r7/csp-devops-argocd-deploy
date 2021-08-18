@@ -23,7 +23,7 @@ spec:
 ---
 
 apiVersion: database.aws.crossplane.io/v1beta1
-kind: DBInstance
+kind: RDSInstance
 metadata:
   name: {{ .Values.rds.name }}-rds
 spec:

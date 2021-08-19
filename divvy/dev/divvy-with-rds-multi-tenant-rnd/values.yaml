@@ -24,7 +24,7 @@ rds:
   aws_provider_prefix: divvy-dev
 
   name: tenant1
-  region: "us-east-1"
+  region: "eu-west-1"
   subnet1_id: "subnet-0e017e3a69f290300"
   subnet2_id: "subnet-08e145dafefb89afa"
   subnet3_id: override-me

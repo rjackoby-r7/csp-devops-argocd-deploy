@@ -61,16 +61,18 @@ spec:
       disableLogTypes: ['error']
 
     tags:
-      - key: name
-        value: {{ .Values.rds.name }}-rds
+
+      - key: crossplane-kind
+        value: rdsinstance.database.aws.crossplane.io
 
       - key: crossplane-name
         value: {{ .Values.rds.name }}-rds
 
-      - key: crossplane-kind
-        value: rdsinstance.database.aws.crossplane.io
       - key: crossplane-providerconfig
         value: {{ .Values.rds.aws_provider_prefix }}-aws-provider-config
+
+      - key: name
+        value: {{ .Values.rds.name }}-rds
 
   writeConnectionSecretToRef:
     name: {{ .Values.crossplaneRdsSecretName }}

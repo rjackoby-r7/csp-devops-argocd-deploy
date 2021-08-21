@@ -14,7 +14,7 @@ metadata:
 spec:
   project: csp-infra-dev-proj
   source:
-    repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/alcide-argo-test/crossplane-argo-wrapper-charts/
+    repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/crossplane-argo-wrapper-charts/
     chart: csp-cluster
     targetRevision: 1.0.0
     helm:

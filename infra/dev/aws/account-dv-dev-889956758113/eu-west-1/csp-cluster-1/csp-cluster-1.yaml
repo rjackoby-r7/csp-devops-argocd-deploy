@@ -27,6 +27,10 @@ spec:
           cluster:
             name: csp-1
 
+        kubeConfig_SecretRef:
+          name: my_kube_config
+          namespace: ops
+
         vpc:
           name: csp-1-vpc
 

@@ -16,7 +16,7 @@ spec:
   source:
     repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/crossplane-argo-wrapper-charts/
     chart: csp-cluster
-    targetRevision: 1.10.0
+    targetRevision: 1.11.0
     helm:
       values: |
         global:

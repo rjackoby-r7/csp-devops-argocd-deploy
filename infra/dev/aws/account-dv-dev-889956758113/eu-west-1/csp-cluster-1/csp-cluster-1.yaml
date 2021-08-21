@@ -26,10 +26,11 @@ spec:
         eks:
           cluster:
             name: csp-1
+            version: 1.21
 
-        kubeConfig_SecretRef:
-          name: my_kube_config
-          namespace: ops
+            kubeConfig_SecretRef:
+              name: my_kube_config
+              namespace: ops
 
         vpc:
           name: csp-1-vpc

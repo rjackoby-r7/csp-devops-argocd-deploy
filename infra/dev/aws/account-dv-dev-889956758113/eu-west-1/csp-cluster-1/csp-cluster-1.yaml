@@ -30,7 +30,7 @@ spec:
 
             kubeConfig_SecretRef:
               name: my-kube-config
-              namespace: csp-1 # On the local server! Added to deployment
+              namespace: csp-1-ns # On the local server! Added to deployment
 
         vpc:
           name: csp-1-vpc

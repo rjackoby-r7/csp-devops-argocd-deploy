@@ -16,7 +16,7 @@ spec:
   source:
     repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/crossplane-argo-wrapper-charts/
     chart: csp-cluster
-    targetRevision: 1.47.0
+    targetRevision: 1.48.0
     helm:
       values: |
         global:
@@ -34,6 +34,9 @@ spec:
 
         vpc:
           name: csp-1-vpc
+
+        helm:
+          helmProviderConfig: divvy-dev-aws-provider-config-aws-provider-config
 
   destination:
     namespace: csp-1-ns

@@ -29,7 +29,7 @@ spec:
             version: 1.21
 
             kubeConfig_SecretRef:
-              name: my_kube_config
+              name: my-kube-config
               namespace: ops
 
         vpc:

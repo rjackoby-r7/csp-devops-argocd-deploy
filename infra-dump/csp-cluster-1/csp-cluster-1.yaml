@@ -32,8 +32,9 @@ spec:
               name: my-kube-config
               namespace: csp-1-ns # On the local server! Added to deployment
 
-        vpc:
-          name: csp-1-vpc
+        network:
+          vpc:
+            name: csp-1-vpc
 
         helm:
           helmProviderConfig: divvy-dev-aws-provider-config-aws-provider-config

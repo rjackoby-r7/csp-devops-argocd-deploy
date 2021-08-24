@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: csp-cluster-2
+  namespace: argocd
+  labels:
+    domain: deployment
+    role: component # Options: deployment-group/ component-group / component
+    cloud-provider: aws
+    env: divvy-dev
+    account: '889956758113'
+  #finalizers:
+  #  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: csp-infra-dev-proj
+  source:
+    repoURL: http://alcide-argo-test.s3-website-us-east-1.amazonaws.com/crossplane-argo-wrapper-charts/
+    chart: csp-cluster
+    targetRevision: 1.51.0
+    helm:
+      values: |
+        global:
+          aws_provider_config: divvy-dev-aws-provider-config
+          region: eu-west-1
+
+        eks:
+          cluster:
+            name: csp-2
+            version: 1.21
+
+            kubeConfig_SecretRef:
+              name: csp-2-kube-config
+              namespace: csp-2-ns # On the local server! Added to deployment
+
+        network:
+          vpc:
+            name: csp-2-vpc
+
+        helm:
+          helmProviderConfig: divvy-dev-aws-provider-config-aws-provider-config
+
+  destination:
+    namespace: csp-2-ns
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+      prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
+      selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    syncOptions:     # Sync options which modifies sync behavior
+      #- Validate=false # disables resource validation (equivalent to 'kubectl apply --validate=true')
+      - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.

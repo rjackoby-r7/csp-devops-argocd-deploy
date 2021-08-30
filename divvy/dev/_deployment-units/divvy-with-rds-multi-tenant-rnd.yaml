@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: divvy-with-rds-multi-tenant-rnd-dep-gr
+  namespace: argocd
+  labels:
+    domain: deployment
+    role: deployment-group # Options: deployment-group/ component-group / component
+spec:
+  project: cwp-sass-dev-proj
+  source:
+    path: divvy/dev/divvy-with-rds-multi-tenant-rnd2/
+    repoURL: https://github.com/rjackoby-r7/csp-devops-argocd-deploy.git
+    targetRevision: HEAD
+    #directory:
+    #  recurse: true
+
+  destination:
+    namespace: '*'
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
